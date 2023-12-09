@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSS ChatBot</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2>TSS ChatBot</h2>
+    <form method="post" action="/get_response">
+        <div class="form-group">
+            <label for="question">Ask a question:</label>
+            <input type="text" class="form-control" id="question" name="question" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Get Response</button>
+    </form>
+
+    {% if question %}
+        <div class="mt-3">
+            <strong>Your Question:</strong> {{ question }}
+        </div>
+        <div class="mt-3">
+            <strong>Response:</strong> {{ answer }}
+        </div>
+    {% endif %}
+</div>
+
+<footer class="mt-5 text-center">
+    <!-- Use a relative path to reference the logo in the same folder as index.html -->
+	<img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+</footer>
+
+</body>
+</html>

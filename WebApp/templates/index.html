@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Display</title>
+
+    <!-- Add Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy6lA+rb2JLl6Vr0R3aU8MpB4abtTEv6MI" crossorigin="anonymous">
+
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #dee2e6;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Data Display</h1>
+
+        <!-- File Upload Form -->
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">Upload Excel file:</label>
+                <input type="file" name="file" id="file" class="form-control-file">
+            </div>
+            <button type="submit" class="btn btn-primary">Process File</button>
+        </form>
+
+        {% if data %}
+            <!-- Display the DataFrame data as HTML -->
+            {{ data | safe }}
+        {% else %}
+            <p>No data to display.</p>
+        {% endif %}
+    </div>
+
+    <!-- Add Bootstrap JS and Popper.js CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXzAIMovwewF9DP1UdiAjkP9s5Oz48CKNtf1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy6lA+rb2JLl6Vr0R3aU8MpB4abtTEv6MI" crossorigin="anonymous"></script>
+</body>
+</html>
